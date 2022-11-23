@@ -1,0 +1,273 @@
+@import url("https://fonts.googleapis.com/css?family=Orbitron");
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #080710;
+
+}
+.bgunsoed{
+  background-image: url("gambarft.jpg");
+}
+.background{
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+}
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -80px;
+    top: -80px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -30px;
+    bottom: -80px;
+}
+.background .shape2{
+  height: 200px;
+  width: 200px;
+  position: absolute;
+  border-radius: 50%;
+}
+.shape2:first-child{
+  background: linear-gradient(
+      #00F260,
+      #0575E6
+  );
+  left: -70px;
+  bottom: 50px;
+}
+.shape2:last-child{
+  background: linear-gradient(
+      to right,
+      #F7971E,
+      #FFD200
+  );
+  right: -100px;
+  top: -80px;
+}
+.background .shape3{
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  border-radius: 50%;
+}
+.shape3:first-child{
+  background: linear-gradient(
+      #ff4b1f,
+      #1fddff
+  );
+  left: -220px;
+  bottom: -100px;
+}
+.shape3:last-child{
+  background: linear-gradient(
+      to right,
+      #833ab4,
+      #fd1d1d
+  );
+  right: -170px;
+  top: -140px;
+}
+.formlogin{
+  height: 700px;
+}
+.formregister{
+  height: 750px;
+}
+form{
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+form *{
+    font-family: 'Poppins',sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: flex;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+input{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+button{
+    margin-top: 50px;
+    width: 100%;
+    background-color: #ffffff;
+    color: #080710;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.social{
+  margin-top: 30px;
+  display: flex;
+}
+.social div{
+  background: red;
+  width: 150px;
+  border-radius: 3px;
+  padding: 5px 10px 10px 5px;
+  background-color: rgba(255,255,255,0.27);
+  color: #eaf0fb;
+  text-align: center;
+}
+.social div:hover{
+  background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+  margin-left: 25px;
+}
+.social i{
+  margin-right: 4px;
+}
+
+.alarm-clock {
+  padding: 7px;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.17);
+}
+.alarm-clock .date {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+ background-color: rgba(255,255,255,0.27);
+  padding: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  z-index: 9;
+}
+.alarm-clock .time {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px 19px;
+  background-color: rgba(255,255,255,0.13);
+  border-radius: 10px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 62px;
+}
+.alarm-clock .time span {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #09ecf8;
+  text-shadow: 0 0 15px #375f08;
+  line-height: 1.75;
+  margin-bottom: 10px;
+
+}
+.alarm-clock .time span:nth-of-type(5) {
+  width: 90px;
+}
+.alarm-clock .time span.colon {
+  width: 14px;
+  padding: 15px;
+  text-align: center;
+  animation: blink 2s infinite;
+
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.jam {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-select option{
+  color: #000000;
+  background-color:#e5e5e5;
+}
+
+/* .ratatengah{
+  display:block;
+  margin-top: 80px;
+  margin: 0 auto;
+} */
+
+#container {
+  display: flex; /* establish flex container */
+  flex-direction: column; /* make main-axis vertical */
+  justify-content: center; /* align items vertically, in this case */
+  align-items: center; /* align items horizontally, in this case */
+}
