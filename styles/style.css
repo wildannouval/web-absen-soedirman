@@ -96,6 +96,9 @@ body{
 .formregister{
   height: 750px;
 }
+.formregisteradmin{
+  height: 800px;
+}
 form{
     width: 400px;
     background-color: rgba(255,255,255,0.13);
