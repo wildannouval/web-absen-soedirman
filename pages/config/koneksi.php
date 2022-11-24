@@ -5,5 +5,5 @@ $user = 'root';
 $pass = '';
 $db = 'webabsensi';
 
-$conn = mysqli_connect($host,$user,$pass,$db) or die ('Cant connect to database');
+$conn = mysqli_connect($host,$user,$pass,$db) or die ('Cant connect to database webabsensi');
 ?>

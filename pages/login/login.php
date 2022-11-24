@@ -1,5 +1,5 @@
 <?php
-require("../config/koneksi.php");
+include "../config/koneksi.php";
 session_start();
 if(isset($_SESSION['nim'])){
     $_SESSION['msg'] = 'Anda sudah masuk';
@@ -27,13 +27,14 @@ if(isset($_POST['submit'])){
         $validate = 'Password Salah!';
       }
       }else{
-        $error = 'NIM tidak Di temukan!';
+        $error = 'NIM tidak Ditemukan!';
       }
     }else{
       $error = 'Form tidak boleh kosong!';
     }
 }
 ?>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -41,13 +42,10 @@ if(isset($_POST['submit'])){
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="../../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Absen Jensoed - Login</title>
 </head>
 
 <body>
@@ -55,51 +53,29 @@ if(isset($_POST['submit'])){
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
+    <div>
+        <form method="POST" action="login.php">
+            <h2>Absensi Anak Jenderal Soedirman</h2>
+            <br>
+            <?php if($error != '') {?>
+            <p class="text-danger"><?= $error; ?></p>
+            <?php }?>
 
-        <div>
-            <form method="POST" action="login.php">
-                <h2>Absensi Anak Jenderal Soedirman</h2>
-                <br>
-                <?php if($error != '') {?>
-                  <p class="text-danger"><?= $error; ?></p>
-                <?php }?>
-                <label for="username">Nomer Induk Mahasiswa</label>
-                <input type="text" placeholder="Nomor Induk Mahasiswa" name="nim">
+            <label for="username">Nomer Induk Mahasiswa</label>
+            <input type="text" placeholder="Nomor Induk Mahasiswa" name="nim">
 
-                <label for="password">Password</label>
-                <input type="password" placeholder="Password" name="password">
-                <?php if($validate != '') {?>
-                <p class="text-danger"><?= $validate; ?></p>
-                <?php }?>
-                <button type="submit" name="submit">Log In</button>
-                <br><br>
-                <p>Tidak punya akun? <a href="../register/register.php">Buat Akun </a></p>
-                <p>Tidak bisa login? <a href="../error/404page.php">Hubungi Admin (Bapendik)</a></p>
-                
-                <!-- <div class="social">
-      <div class="go"><i class="fab fa-google"></i>  Google</div>
-      <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-    </div> -->
-            </form>
-        </div>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" name="password">
+            <?php if($validate != '') {?>
+            <p class="text-danger"><?= $validate; ?></p>
+            <?php }?>
 
-        <!-- <div class="jam">
-            <div class="alarm-clock">
-                <div class="date">
-                    <span class="month"></span>
-                    <span class="day"></span>,
-                    <span class="year"></span>
-                </div>
-
-                <div class="time">
-                    <span class="hours"></span>
-                    <span class="colon"> :</span>
-                    <span class="minutes"></span>
-                    <span class="colon"> : </span>
-                    <span class="seconds"></span>
-                </div>
-            </div>
-        </div> -->
+            <button type="submit" name="submit">Log In</button>
+            <br><br>
+            <p>Tidak punya akun? <a href="../register/register.php">Buat Akun </a></p>
+            <p>Tidak bisa login? <a href="../error/404page.php">Hubungi Admin (Bapendik)</a></p>
+        </form>
+    </div>
     </div>
     <script type="text/javascript">
     //Need to determine the constant of some id functions.
@@ -165,6 +141,10 @@ if(isset($_POST['submit'])){
 
     //1 second = 1000 milliseconds
     setInterval(setDate, 1000);
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
 </body>
 

@@ -7,7 +7,7 @@ if(!isset($_SESSION['nim'])){
 }else if($_SESSION['nim'] == 'admin'){
     header('Location: ../dashboard/dashboard.php');
 }
-require("../config/koneksi.php");
+include "../config/koneksi.php";
 if(isset($_POST['submit'])){
     $nim = $_POST['nim'];
     $id_mk = $_POST['nama_mk'];
@@ -17,23 +17,24 @@ if(isset($_POST['submit'])){
             $query = "INSERT INTO absensi(nim,id_mk) VALUES ('$sesi','$id_mk')";
             $result = mysqli_query($conn,$query);
             if($result){
-            echo "<script>alert('Absen BERHASIL dilakukan.');window.location='../login/login.php';</script>";
+            echo "<script>alert('Proses absensi berhasil!');window.location='../login/login.php';</script>";
             session_unset();
             session_destroy();
             exit;
         }else{
-            echo "<script>alert('Absen GAGAL dilakukan.');window.location='../form/formabsen.php';</script>";
+            echo "<script>alert('Error : Absen gagal dilakukan!');window.location='../form/formabsen.php';</script>";
             }
         }else{
-            echo "<script>alert('GAGAL yang dimaksukkan invalid');window.location='../form/formabsen.php';</script>";
+            echo "<script>alert('Error : Session Invalid!');window.location='../form/formabsen.php';</script>";
         }
     
     }else{
-        echo "<script>alert('Data tidak boleh kosong!');window.location='../form/formabsen.php';</script>";
+        echo "<script>alert('Error : Inputan tidak boleh kosong!');window.location='../form/formabsen.php';</script>";
     }
 }
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,10 +44,11 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="../../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Absen Jensoed - Form Absen</title>
 </head>
 
 <body>
-<div class="background">
+    <div class="background">
         <div class="shape2"></div>
         <div class="shape2"></div>
     </div>
@@ -70,13 +72,9 @@ if(isset($_POST['submit'])){
             ?>
         </select>
         <br><br><br><br>
-        <button type="submit" name="submit">Absen</button>
+        <button type="submit" name="submit">Proses Absen</button>
         <br><br>
         <p>Tidak bisa absen? <a href="../error/404page.php">Hubungi Admin (Bapendik)</a></p>
-        <!-- <div class="social">
-            <div class="go"><i class="fab fa-google"></i>  Google</div>
-            <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-          </div> -->
     </form>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

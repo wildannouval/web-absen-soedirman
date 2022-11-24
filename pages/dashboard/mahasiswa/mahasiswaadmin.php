@@ -12,9 +12,8 @@ $error = '';
 $validate = '';
 
 if( isset($_POST['submit']) ){
-  // menghilangkan backshlases
   $nama = stripslashes($_POST['nama']);
-  //cara sederhana mengamankan dari sql injection
+
   $nama      = mysqli_real_escape_string($conn, $nama);
   $nim     = stripslashes($_POST['nim']);
   $nim     = mysqli_real_escape_string($conn, $nim);
@@ -31,16 +30,16 @@ if( isset($_POST['submit']) ){
                 if($result){
                         header("Location: ../mahasiswa/crudmahasiswa.php");
                     }else{
-                        $error = 'Register Mahasiswa Gagal!';
+                        $error = 'Error : Create data mahasiswa gagal!';
                     }
                 }else{
-                    $error = 'NIM sudah terdaftar!';
+                    $error = 'Error : Nomor induk mahasiswa sudah terdaftar!';
                 }
             }else{
-                $validate = 'Password tidak sama !';
+                $validate = 'Error : Password tidak sama!';
             }
         }else{
-            $error = 'Data tidak boleh kosong!';
+            $error = 'Error : Inputan tidak boleh kosong!';
         }
     }
     function cek_nama($nim,$conn){
@@ -49,6 +48,7 @@ if( isset($_POST['submit']) ){
         if($result = mysqli_query($conn,$query)) return mysqli_num_rows($result);
     }
 ?>
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -69,8 +69,9 @@ if( isset($_POST['submit']) ){
     <form class="formregisteradmin" method="POST" action="mahasiswaadmin.php">
         <h2>Tambah Mahasiswa (Admin)</h2>
         <?php if($error != ''){ ?>
-            <p class="text-danger"><?= $error; ?></p>
+        <p class="text-danger"><?= $error; ?></p>
         <?php } ?>
+
         <label for="username">Nama Mahasiswa</label>
         <input type="text" placeholder="Nama Lengkap" name="nama">
 
@@ -80,21 +81,19 @@ if( isset($_POST['submit']) ){
         <label for="password">Password</label>
         <input type="text" placeholder="Password" name="password">
         <?php if($validate != '') {?>
-            <p class="text-danger"><?= $validate; ?></p>
+        <p class="text-danger"><?= $validate; ?></p>
         <?php }?>
+
         <label for="password">Password Confirmation</label>
         <input type="text" placeholder="Ulangi Password" name="repassword">
         <?php if($validate != '') {?>
-            <p class="text-danger"><?= $validate; ?></p>
+        <p class="text-danger"><?= $validate; ?></p>
         <?php }?>
+
         <br>
         <button type="submit" name="submit">Tambah Mahasiswa</button>
         <br><br>
         <p>kembal ke Tabel Mahasiswa? <a href="../mahasiswa/crudmahasiswa.php">Tabel Mahasiswa!</a></p>
-        <!-- <div class="social">
-      <div class="go"><i class="fab fa-google"></i>  Google</div>
-      <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-    </div> -->
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

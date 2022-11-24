@@ -18,20 +18,21 @@ if(isset($_POST['submit'])){
             $query = "INSERT INTO absensi(id_absen,nim,id_mk,jam_absen) VALUES ('$id_absen','$nim','$id_mk','$jam_absen')";
             $result = mysqli_query($conn,$query);
             if($result){
-            echo "<script>alert('Absen BERHASIL dilakukan.');window.location='crudabsen.php';</script>";
+            echo "<script>alert('Create data table absen berhasil!');window.location='crudabsen.php';</script>";
         }else{
-            echo "<script>alert('Absen GAGAL dilakukan.');window.location='absenAdmin.php';</script>";
+            echo "<script>alert('Error : Create data table absen gagal!');window.location='absenAdmin.php';</script>";
             }
         }else{
-            echo "<script>alert('Invalid Session');window.location='absenAdmin.php';</script>";
+            echo "<script>alert('Error : Session invalid');window.location='absenAdmin.php';</script>";
         }
     
     }else{
-        echo "<script>alert('Data tidak boleh kosong!');window.location='absenAdmin.php';</script>";
+        echo "<script>alert('Error : Inputan tidak boleh kosong!');window.location='absenAdmin.php';</script>";
     }
 }
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,10 +42,11 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="../../../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Table Absen - Create data</title>
 </head>
 
 <body>
-<div class="background">
+    <div class="background">
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
@@ -72,13 +74,9 @@ if(isset($_POST['submit'])){
         </select>
         <label>Jam absen</label>
         <input type="datetime-local" placeholder="Jam Absen" name="jam_absen">
-        <button type="submit" name="submit">Absenin</button>
+        <button type="submit" name="submit">Tambah Absen</button>
         <br><br>
-        <p>kembal ke Tabel Absensi? <a href="../absensi/crudabsen.php">Tabel Absensi!</a></p>
-        <!-- <div class="social">
-            <div class="go"><i class="fab fa-google"></i>  Google</div>
-            <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-          </div> -->
+        <p>kembali ke Tabel Absensi? <a href="../absensi/crudabsen.php">Tabel Absensi!</a></p>
     </form>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

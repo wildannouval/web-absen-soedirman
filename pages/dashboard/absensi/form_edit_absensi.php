@@ -19,8 +19,11 @@ if(isset($_POST['update'])){
     $query = mysqli_query($conn,$sql);
     if($query){
         ?>
-         <script>alert('Data Berhasil Diubah!'); document.location='crudabsen.php';</script>
-        <?php
+<script>
+alert('Data Berhasil Diubah!');
+document.location = 'crudabsen.php';
+</script>
+<?php
     }
 }
 
@@ -30,6 +33,7 @@ $data = mysqli_fetch_array($query);
 
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,9 +43,11 @@ $data = mysqli_fetch_array($query);
     <link rel="stylesheet" href="../../../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Table Absen - Update data</title>
 </head>
+
 <body>
-<div class="background">
+    <div class="background">
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
@@ -72,10 +78,6 @@ $data = mysqli_fetch_array($query);
         <button type="submit" name="update">Edit Absensi</button>
         <br><br>
         <p>kembali ke Dashboard? <a href="Dashboard.php">Dashboard!</a></p>
-        <!-- <div class="social">
-            <div class="go"><i class="fab fa-google"></i>  Google</div>
-            <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-          </div> -->
     </form>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

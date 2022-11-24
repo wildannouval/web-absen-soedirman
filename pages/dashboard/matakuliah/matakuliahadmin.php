@@ -17,20 +17,21 @@ if(isset($_POST['submit'])){
             $query = "INSERT INTO matakuliah(id_mk,nama_mk,jam) VALUES ('$id_mk','$nama_mk','$jam')";
             $result = mysqli_query($conn,$query);
             if($result){
-            echo "<script>alert('Absen BERHASIL dilakukan.');window.location='crudmatakuliah.php';</script>";
+            echo "<script>alert('Create data mahasiswa berhasil!');window.location='crudmatakuliah.php';</script>";
         }else{
-            echo "<script>alert('Absen GAGAL dilakukan.');window.location='matakuliahadmin.php';</script>";
+            echo "<script>alert('Error : data gagal dilakukan!');window.location='matakuliahadmin.php';</script>";
             }
         }else{
-            echo "<script>alert('Invalid Session');window.location='matakuliahadmin.php';</script>";
+            echo "<script>alert('Error : Session invalid');window.location='matakuliahadmin.php';</script>";
         }
     
     }else{
-        echo "<script>alert('Data tidak boleh kosong!');window.location='matakuliahadmin.php';</script>";
+        echo "<script>alert('Error : Inputan tidak boleh kosong!');window.location='matakuliahadmin.php';</script>";
     }
 }
 ?>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +44,7 @@ if(isset($_POST['submit'])){
 </head>
 
 <body>
-<div class="background">
+    <div class="background">
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
@@ -62,10 +63,6 @@ if(isset($_POST['submit'])){
         <button type="submit" name="submit">Tambah Matakuliah</button>
         <br><br>
         <p>kembal ke Tabel matakuliah? <a href="../matakuliah/crudmatakuliah.php">Tabel matakuliah!</a></p>
-        <!-- <div class="social">
-            <div class="go"><i class="fab fa-google"></i>  Google</div>
-            <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
-          </div> -->
     </form>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
