@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
-    <form method="POST" action="absenAdmin.php">
+    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
         <h2>Tambah Absensi (Admin)</h2>
         <br>
 
@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
             ?>
         </select>
         <label>Jam absen</label>
-        <input type="datetime-local" placeholder="Jam Absen" name="jam_absen">
+        <input type="datetime-local" step="1" placeholder="Jam Absen" name="jam_absen">
         <button type="submit" name="submit">Tambah Absen</button>
         <br><br>
         <p>kembali ke Tabel Absensi? <a href="../absensi/crudabsen.php">Tabel Absensi!</a></p>

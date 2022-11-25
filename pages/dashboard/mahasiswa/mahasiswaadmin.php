@@ -66,7 +66,7 @@ if( isset($_POST['submit']) ){
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
-    <form class="formregisteradmin" method="POST" action="mahasiswaadmin.php">
+    <form class="formregisteradmin" method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
         <h2>Tambah Mahasiswa (Admin)</h2>
         <?php if($error != ''){ ?>
         <p class="text-danger"><?= $error; ?></p>

@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
-    <form method="POST" action="matakuliahadmin.php">
+    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
         <h2>Tambah Matakuliah (Admin)</h2>
         <br>
 

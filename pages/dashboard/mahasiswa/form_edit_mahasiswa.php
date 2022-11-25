@@ -49,7 +49,7 @@ $data = mysqli_fetch_array($query);
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
-    <form method="POST" action="form_edit_mahasiswa.php">
+    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
         <h2>Edit Mahasiswa (Admin)</h2>
         <br>
         <label>Nomer Induk Mahasiswa</label>

@@ -51,7 +51,7 @@ $data = mysqli_fetch_array($query);
         <div class="shape2"></div>
         <div class="shape3"></div>
     </div>
-    <form method="POST" action="form_edit_absensi.php">
+    <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
         <h2>Edit Absensi (Admin)</h2>
         <br>
 
@@ -62,19 +62,23 @@ $data = mysqli_fetch_array($query);
         <input type="text" name="nim" value="<?php echo $data['nim']?>">
 
         <label>Mata kuliah</label>
-        <select name="nama_mk" class="form-select">
-            <option disabled selected> Pilih Matakuliah</option>
+        <select name="id_mk" class="form-select">
             <?php
-            $sql = mysqli_query($conn,"SELECT * FROM matakuliah");
-            while ($data=mysqli_fetch_array($sql)){
-                ?>
-            <option value="<?=$data['id_mk']?>"><?=$data['nama_mk']?></option>
-            <?php
+            $query_matakuliah = "SELECT * FROM matakuliah";
+            $sql_matakuliah = mysqli_query($conn,$query_matakuliah);
+            while ($data_matakuliah = mysqli_fetch_array($sql_matakuliah)){
+                $id_mk = $data_matakuliah['id_mk'];
+                if($data['id_mk']==$data_matakuliah['id_mk']){
+                    $select="value='$id_mk' selected";
+                }else{
+                    $select="value='$id_mk'";
+                }
+                echo "<option $select>".$data_matakuliah['nama_mk']."</option>";
             }
             ?>
         </select>
         <label>Jam absen</label>
-        <input type="datetime-local" name="jam_absen" value="<?php echo date("c", strtotime($data['jam_absen']));?>">
+        <input type="datetime-local" name="jam_absen" value="<?php echo date('Y-m-d\TH:i:s',strtotime($data['jam_absen']));?>"/>
         <button type="submit" name="update">Edit Absensi</button>
         <br><br>
         <p>kembali ke Dashboard? <a href="Dashboard.php">Dashboard!</a></p>
