@@ -81,7 +81,7 @@ $data = mysqli_fetch_array($query);
         <input type="datetime-local" name="jam_absen" value="<?php echo date('Y-m-d\TH:i:s',strtotime($data['jam_absen']));?>"/>
         <button type="submit" name="update">Edit Absensi</button>
         <br><br>
-        <p>kembali ke Dashboard? <a href="Dashboard.php">Dashboard!</a></p>
+        <p>kembali ke Table Absensi? <a href="../absensi/crudabsen.php">Tabel Absensi!</a></p>
     </form>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
